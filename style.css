@@ -1,0 +1,23 @@
+#container {
+    display: flex;
+    width: 400px;
+    height: 400px;
+    flex-wrap: wrap;
+    border: none;
+
+}
+
+.line1 {
+
+}
+
+.line2 {
+}
+
+
+div {
+    border: 1px, solid;
+    box-sizing: border-box;
+    width: 100px;
+    height: 100px;
+}
