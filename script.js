@@ -75,9 +75,6 @@ container.appendChild(square16);
 
 
 
-
-
-
 const allDivs = document.querySelectorAll(".square");
 allDivs.forEach(carre => {
     carre.addEventListener('mouseover', () => {
@@ -87,4 +84,17 @@ carre.style.background = "red";
 carre.addEventListener('mouseout', () => {
 carre.style.background = "white";
 });
+});
+
+
+const change = document.querySelector("#change");
+change.addEventListener('click', () => {
+let userInput = prompt("Pick a number of square per sides (max 100)");
+let userNumber = Number(userInput);
+if (userNumber > 100 || userNumber < 1) {
+    alert("Please pick a number between 1 and 100 bitch")
+} else {
+    console.log(userNumber);
+    typeof(userNumber)
+}
 });
