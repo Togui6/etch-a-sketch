@@ -1,5 +1,19 @@
 const container = document.querySelector("#container");
 
+function light() {
+    const allDivs = document.querySelectorAll(".square");
+    allDivs.forEach(carre => {
+        carre.addEventListener('mouseover', () => {
+    carre.style.background = "red";
+    });
+    
+    carre.addEventListener('mouseout', () => {
+    carre.style.background = "white";
+    });
+    });
+    }
+
+
 const square1 = document.createElement("div");
 square1.classList.add("square");
 
@@ -72,29 +86,56 @@ container.appendChild(square14);
 container.appendChild(square15);
 container.appendChild(square16);
 
+let userNumber = 1;
+light();
 
-
-
-const allDivs = document.querySelectorAll(".square");
-allDivs.forEach(carre => {
-    carre.addEventListener('mouseover', () => {
-carre.style.background = "red";
-});
-
-carre.addEventListener('mouseout', () => {
-carre.style.background = "white";
-});
-});
+function creation() {
+    let squareSize = 400 / Number(userNumber);
+    userNumber = Number(userNumber) * userNumber;
+    let i = userNumber;
+    for (; i > 0; i--) {
+        console.log("1 iteration");
+        const squareInfinite = document.createElement("div");
+        squareInfinite.classList.add("square");
+        squareInfinite.style.width = squareSize + "px";
+        squareInfinite.style.height = squareSize + "px";
+        container.appendChild(squareInfinite);
+    }
+    console.log("all iterations done");
+    light();
+    }
 
 
 const change = document.querySelector("#change");
 change.addEventListener('click', () => {
 let userInput = prompt("Pick a number of square per sides (max 100)");
-let userNumber = Number(userInput);
+userNumber = Number(userInput);
 if (userNumber > 100 || userNumber < 1) {
     alert("Please pick a number between 1 and 100 bitch")
 } else {
-    console.log(userNumber);
-    typeof(userNumber)
+    console.log("You picked " + userNumber);
+    while (container.firstChild) {
+container.removeChild(container.firstChild);
+let squareSize = 400 / userNumber;
+console.log("The size of 1 div should be " + squareSize + "x" + squareSize);
+
 }
-});
+creation();
+    }
+}
+);
+
+
+
+// resizing test
+// w d'un div (width) = 400/userInput 
+// h d'un div (height)= 400/userInput
+
+// h n'est peut être pas nécessaire
+
+// créer une variable squareSize pour héberger le résultat de 400/userInput
+// POur remplir les 400 px de width et height
+// > userInput x création de div (avec infos squareSize)
+
+// Propriété de div à changer dans JS, ou bien enlever la propriété existante
+// de div dans CSS et mettre les propriétés dans la manipulation DOM
